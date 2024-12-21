@@ -1,0 +1,247 @@
+/* Charge la police Ming avec @font-face */
+@font-face {
+    font-family: 'Ming'; /* Nom de la police personnalisée */
+    src: url('font/Ming.ttf') format('truetype'); /* Chemin vers le fichier Ming.ttf */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Applique la police Ming à tout le document */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ming', sans-serif; /* Utilisation de la police Ming, sinon sans-serif */
+}
+
+/* Style du body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('images/img.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    overflow: hidden; /* Empêche le débordement de la page */
+}
+
+/* Container principal du jeu */
+.game-container {
+    text-align: center;
+    max-width: 800px; /* Limite la largeur du conteneur */
+    width: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 100vh; /* Limite la hauteur */
+}
+
+/* Style de la boîte du jeu */
+.game-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Centrage */
+}
+
+/* Titres */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Instructions */
+.instructions {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Styles pour l'input */
+input {
+    font-size: 1.3rem;
+    padding: 12px;
+    width: 90%;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus de l'input */
+input:focus {
+    box-shadow: 0 0 10px rgba(0, 140, 255, 0.8);
+}
+
+/* Styles du bouton */
+button {
+    font-size: 1.4rem;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+.attempt {
+    display: flex; /* Active l'affichage en ligne pour les éléments enfants */
+    align-items: center; /* Aligne verticalement les éléments */
+    justify-content: space-between; /* Sépare les caractéristiques et l'image */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: white;
+}
+
+/* Style des caractéristiques */
+.attempt .details {
+    flex: 1; /* Prend tout l'espace disponible à gauche */
+}
+
+/* Image du personnage */
+.attempt img {
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
+    width: 40%; /* Taille plus grande pour l'image */
+    height: auto;
+    border-radius: 15%;
+    margin-left: 20px; /* Espace entre les caractéristiques et l'image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre pour l'image */
+}
+
+
+.attempt ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Image des personnages */
+img {
+    margin-left: 20px;
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+}
+.character-image {
+    width: 300px; /* Largeur souhaitée */
+    height: auto; /* Conserve le ratio d'aspect */
+    margin-left: 20px; /* Espacement par rapport aux caractéristiques */
+    border-radius: 10px; /* Optionnel : coins arrondis */
+}
+
+
+/* Masquer le bouton de réinitialisation au départ */
+#reset-btn {
+    display: none;
+}
+
+/* Image du personnage trouvé en grand */
+.success-image {
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* Style du message de succès */
+#success-message {
+    text-align: center;
+    color: yellow;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* Permet le défilement des tentatives */
+.attempts-container {
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+/* Style pour le nom du personnage */
+.character-name {
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    color: #FFD700; 
+    margin-bottom: 10px; 
+    display: block;
+    font-family: 'Ming', sans-serif;
+    text-transform: uppercase;
+}
+
+.characteristics-list {
+    list-style: none; 
+    padding: 0; 
+    margin: 10px 0; 
+}
+
+.characteristic-item {
+    font-size: 1.0rem; /* Taille du texte */
+    margin-bottom: 5px; /* Espacement entre les lignes */
+    font-family: 'Ming', sans-serif;
+}
+
+/* Style pour l'image du personnage */
+.character-image {
+    width: 40%; /* Taille par défaut de l'image */
+    height: auto; /* Conserve le ratio d'aspect */
+    margin-left: 20px; /* Espacement par rapport à la liste des caractéristiques */
+    border-radius: 10%; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre portée */
+}
+
+/* Responsivité pour les écrans plus petits */
+@media (max-width: 600px) {
+    .game-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1.4rem;
+        padding: 10px 15px;
+    }
+    .character-name {
+        font-size: 1.5rem; /* Réduit la taille du texte sur mobile */
+    }
+
+    .character-image {
+        width: 150px; /* Réduit la taille de l'image */
+    }
+
+    .characteristic-item {
+        font-size: 1rem; /* Réduit la taille des caractéristiques */
+    }
+}
